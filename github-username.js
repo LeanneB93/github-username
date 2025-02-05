@@ -20,21 +20,7 @@ const blogElement = document.getElementById("blog")
 const companyElement = document.getElementById("company")
 const searchForm = document.getElementById("search-form")
 
-darkButton.addEventListener("click", () => {
-    setTheme('dark')
-    lightButton.style.display = "flex"
-    darkButton.style.display = "none"
-})
-
-lightButton.addEventListener("click", () => {
-    setTheme('light')
-    darkButton.style.display = "flex"
-    lightButton.style.display = "none"
-})
-
-searchForm.addEventListener("submit", async (event) => {
-    event.preventDefault()
-    
+const fetchUserDetails = async () => {
     const username = searchInput.value || "octocat"
 
     try {
@@ -72,4 +58,23 @@ searchForm.addEventListener("submit", async (event) => {
     } catch (err) {
         console.log("error: ", err)
     }
+}
+
+fetchUserDetails()
+
+darkButton.addEventListener("click", () => {
+    setTheme('dark')
+    lightButton.style.display = "flex"
+    darkButton.style.display = "none"
+})
+
+lightButton.addEventListener("click", () => {
+    setTheme('light')
+    darkButton.style.display = "flex"
+    lightButton.style.display = "none"
+})
+
+searchForm.addEventListener("submit", (event) => {
+    event.preventDefault()
+    fetchUserDetails()
 })
