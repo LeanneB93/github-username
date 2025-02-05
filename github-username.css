@@ -1,0 +1,336 @@
+:root,
+:root.light {
+    --bg-color: #F6F8FF;
+    --base-color: #FEFEFE;
+    --primary-text-color: #4B6A9B;
+    --secondary-text-color: #2B3442;
+    --tertiary-text-color: #697C9A;
+    --light-color: #000;
+    --accent-color: #0079FF;
+    --icon-color: #4b6a9b;
+}
+
+:root.dark {
+    --bg-color: #141D2F;
+    --base-color: #1E2A47;
+    --primary-text-color: #fff;
+    --secondary-text-color: #fff;
+    --light-color: #ffff;
+    --accent-color: #0079FF;
+    --icon-color: #fff;
+}
+
+body {
+    font-family: "Space Mono", monospace;
+    background-color: var(--bg-color);
+
+    p,
+    h2 {
+        margin: 0;
+    }
+
+    .container {
+        max-width: 730px;
+        margin: 0 auto;
+
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .headerTitle {
+            font-weight: 700;
+            font-size: 26px;
+            line-height: 38.51px;
+            color: var(--light-color);
+        }
+
+        .theme-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            color: var(--tertiary-text-color);
+            background-color: transparent;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 19.25px;
+            letter-spacing: 2.5px;
+        }
+
+        .theme-btn.light {
+            display: none;
+        }
+
+        .dark .theme-btn.dark {
+            display: none;
+        }
+
+        .dark .theme-btn.light {
+            display: block;
+        }
+
+        .search {
+            position: relative;
+            display: flex;
+            margin-top: 36px;
+            box-shadow: 0 16px 30px -10px rgb(70, 96, 187, 0.2);
+
+            .searchIcon {
+                position: absolute;
+                top: 20px;
+                bottom: 20px;
+                left: 20px;
+            }
+
+            .searchBar {
+                border: none;
+                box-sizing: border-box;
+                border-radius: 10px;
+                height: 69px;
+                width: 100%;
+                padding-left: 55px;
+                background-color: var(--base-color);
+            }
+        }
+
+        ::placeholder {
+            font-size: 18px;
+            font-family: "Space Mono", monospace;
+            color: var(--primary-text-color);
+        }
+
+        .errorMessage {
+            display: none;
+            position: absolute;
+            right: 140px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: red;
+            font-size: 15px;
+        }
+
+        .input-search {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 106px;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #0079FF;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .card {
+            background-color: var(--base-color);
+        }
+
+        .profile {
+            border-radius: 10px;
+            display: grid;
+            column-gap: 35px;
+            grid-template-columns: auto 1fr;
+            margin-top: 24px;
+            padding: 48px;
+            background-color: var(--base-color);
+        }
+
+        .profilePhoto {
+            width: 117px;
+            height: 117px;
+            border-radius: 50%;
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+        }
+
+        .profileStart {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            grid-column: 2 / 3;
+            align-self: flex-start;
+        }
+
+        .userName {
+            font-size: 26px;
+            line-height: 26px;
+            font-weight: 600;
+            color: var(--light-color);
+        }
+
+        .date {
+            font-size: 15px;
+            line-height: 15px;
+            color: var(--light-color);
+        }
+
+        .tag {
+            line-height: 16px;
+            color: var(--accent-color);
+            margin-top: 10px;
+            width: 100%;
+        }
+
+
+
+        .bio {
+            font-size: 15px;
+            color: var(--primary-text-color);
+            grid-column: 2 / 3;
+        }
+
+        .stats {
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background-color: var(--bg-color);
+            grid-column: 2 / 3;
+        }
+
+        .repos,
+        .followers,
+        .following {
+            font-size: 13px;
+            color: var(--primary-text-color);
+        }
+
+        .eight,
+        .figure,
+        .amount {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--secondary-text-color);
+        }
+
+        .footer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px 0;
+            color: var(--primary-text-color);
+            font-size: 15px;
+            margin-top: 32px;
+            grid-column: 2 / 3;
+
+            div {
+                svg {
+                    fill: var(--icon-color);
+                }
+            }
+
+            .footerItem {
+                display: flex;
+                gap: 20px;
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 573px;
+            }
+
+            .profilePhoto {
+                grid-row: 1 / 2;
+            }
+
+            .profileStart {
+                flex-direction: column;
+                align-self: center;
+                gap: 10px;
+
+                .tag {
+                    margin-top: 0;
+                }
+
+                .date {
+                    order: 3;
+                }
+            }
+
+            .bio,
+            .stats,
+            .footer {
+                grid-column: 1 / 3;
+            }
+
+            .bio {
+                margin: 24px 0;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .theme-btn {
+                font-size: 13px;
+            }
+
+            ::placeholder {
+                font-size: 13px;
+            }
+
+            .input-search {
+                width: 84px;
+            }
+
+            .profile {
+                padding: 24px;
+            }
+
+            .profilePhoto {
+                width: 70px;
+                height: 70px;
+            }
+
+            .userName {
+                font-size: 16px;
+            }
+
+            .tag {
+                font-size: 13px;
+            }
+
+            .date {
+                font-size: 13px;
+            }
+
+            .bio {
+                margin-top: 33px;
+
+                font-size: 13px;
+            }
+
+            .repos,
+            .followers,
+            .following {
+                font-size: 11px;
+            }
+
+            .eight,
+            .figure,
+            .amount {
+                font-size: 16px;
+            }
+
+            .location,
+            .twitter,
+            .blog,
+            .company {
+                font-size: 13px;
+            }
+
+            .footer {
+                flex-direction: column;
+                margin-top: 24px;
+
+                .footerItem {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
